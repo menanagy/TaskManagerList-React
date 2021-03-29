@@ -2,6 +2,7 @@ import { React } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './Component/Navbar.js'
 import AddTask from './Component/AddTask';
+import TaskList from './Component/TaskList.js';
 function App() {
   return (
     <div>
@@ -11,6 +12,7 @@ function App() {
         <div className="row">  
             <div className="col-10 mx-auto">
                 <AddTask />
+                <TaskList />
             </div>
         </div> 
       </div>

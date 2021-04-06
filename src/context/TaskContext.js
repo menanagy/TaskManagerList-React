@@ -15,8 +15,12 @@ export const TaskContextProvider =(props)=>{
         console.log(newTask);
         setTasks(newTask);
     }
+    const addTask=(task)=>{
+       console.log(task);
+        // setTasks([...tasks,task])
+    }
     return(
-        <TaskContext.Provider value={{tasks,removeItem}}>
+        <TaskContext.Provider value={{tasks,removeItem,addTask}}>
             {props.children}
         </TaskContext.Provider>
     )

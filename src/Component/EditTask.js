@@ -1,31 +1,34 @@
-import React ,{useState,useContext}from 'react'
+import React ,{useState,useContext,useEffect}from 'react'
 import { TaskContext} from '../context/TaskContext'
-import TaskList from './TaskList';
 
-export default function AddTask() {
+export default function EditTask() {
     const [title,setTitle]=useState('');
-    const{addTask,itemEdit}= useContext(TaskContext);
+    const{editTask,itemEdit}= useContext(TaskContext);
     const handleSumbit=(event)=>{
         event.preventDefault();
-        addTask({title:title,id:Math.floor(Math.random()*10000)});
+        editTask({title:title,id:itemEdit.id});
         //Clear Input 
         setTitle('');
     }
     const handleChange=(event)=>{
         setTitle(event.target.value);
+
     }
+    useEffect(() => {
+        if(itemEdit!=null) {
+            setTitle(itemEdit.title);
+        }
+    },[itemEdit])
 
     return (
         <div>
-            {itemEdit?'':
                 <form className="border my-3 p-3" onSubmit={handleSumbit}>
                         <div className="form-group">
-                            <h1 className="text-center display-4">Add New Task</h1>
+                            <h1 className="text-center display-4">Edit Task</h1>
                             <input type="text" className="form-control" onChange={handleChange} value ={title} placeholder="Type title of Task" />
                         </div>
                         <button type="submit" className="btn btn-success btn-block">Submit</button>
-                </form>}
-                <TaskList />
+                </form>
         </div>
     )
 }

@@ -2,11 +2,13 @@ import React ,{useContext}from 'react'
 import { TaskContext} from '../context/TaskContext'
 import Task from './Task'
 import NotFoundTask from './NotFoundTask'
+import EditTask from './EditTask';
 export default function TaskList() {
-    const{tasks}= useContext(TaskContext);
+    const{tasks,itemEdit}= useContext(TaskContext);
     //console.log(tasks);
     return (
         <>
+        {itemEdit?<EditTask />:''}
         <h1 className="text-center display-4 ">All Tasks</h1>
         <ul className="list-unstyled">
                 {

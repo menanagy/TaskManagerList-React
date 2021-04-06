@@ -11,6 +11,9 @@ export const TaskContextProvider =(props)=>{
     // const[tasks,setTasks]=useState({title:"First Task",id:1},{title:"Second Task",id:2},{title:"Third Task",id:3})
     const removeItem=(id)=>{
         console.log(id);
+        const newTask=tasks.filter((item)=>item.id !== id);
+        console.log(newTask);
+        setTasks(newTask);
     }
     return(
         <TaskContext.Provider value={{tasks,removeItem}}>

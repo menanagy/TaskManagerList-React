@@ -1,6 +1,7 @@
 import React ,{useContext}from 'react'
 import { TaskContext} from '../context/TaskContext'
 import Task from './Task'
+import NotFoundTask from './NotFoundTask'
 export default function TaskList() {
     const{tasks}= useContext(TaskContext);
     //console.log(tasks);
@@ -9,7 +10,7 @@ export default function TaskList() {
         <h1 className="text-center display-4 ">All Tasks</h1>
         <ul className="list-unstyled">
                 {
-                        tasks.map((item,index)=>{
+                       tasks.length? tasks.map((item,index)=>{
                             return(
                                  <Task item={item} key={index}/>
                                 /*   <li className="border p-3 my-3" key={index}>
@@ -18,7 +19,7 @@ export default function TaskList() {
                                     <button className="btn btn-info float-right mr-2">Edit</button>
                                 </li>*/
                             )
-                         })
+                         }):<NotFoundTask />
                 }
                 {/*
                     <li className="border p-3 my-3">

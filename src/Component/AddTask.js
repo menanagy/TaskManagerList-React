@@ -1,6 +1,6 @@
 import React ,{useState,useContext}from 'react'
 import { TaskContext} from '../context/TaskContext'
-//import TaskList from './TaskList';
+import TaskList from './TaskList';
 
 export default function AddTask() {
     const [title,setTitle]=useState('');
@@ -24,6 +24,7 @@ export default function AddTask() {
                         </div>
                         <button type="submit" className="btn btn-success btn-block">Submit</button>
                 </form>
+                <TaskList />
         </div>
     )
 }

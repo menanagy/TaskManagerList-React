@@ -3,7 +3,7 @@ import { TaskContext} from '../context/TaskContext'
 import Task from './Task'
 export default function TaskList() {
     const{tasks}= useContext(TaskContext);
-    console.log(tasks);
+    //console.log(tasks);
     return (
         <>
         <h1 className="text-center display-4 ">All Tasks</h1>

@@ -1,5 +1,4 @@
 import React,{useState,createContext}from 'react';
-import { TaskContext } from './TaskContext';
 export const TaskContext=createContext();
 const initialState=[
     {title:"First Task",id:1},
